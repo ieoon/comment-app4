@@ -1,0 +1,39 @@
+<div class ="contents row">
+  <div class="content_post" style="background-image: url(<%= @comment.image %>);">
+    <% if user_signed_in? && current_user.id == @comment.user_id %>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '編集', "/comments/#{@comment.id}/edit", method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', "/comments/#{@comment.id}", method: :delete %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+    <%= simple_format(@comment.text) %>
+    </span> 
+  </div>
+  <div class="container">
+  <a class="fas fa-qrcode" href="https://api.qrserver.com/v1/create-qr-code/?size=150×150&data=url"></a>
+    <%# <img src="https://api.qrserver.com/v1/create-qr-code/?size=150×150&data=url"> %>
+    <%= form_with(model: [@comment, @post], local: true) do |form| %>
+      <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+      <%= form.submit "SEND" %>
+      <% end %>
+
+      <div class="posts">
+      <h4>＜コメント一覧＞</h4>
+      <% if @posts %>
+        <% @posts.each do |post| %>
+        <p>
+          <%= post.text %>
+        </p>
+        <%= render "likes/like", post: post %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

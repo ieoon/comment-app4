@@ -1,0 +1,8 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+
+  <% @comments.each do |comment| %>
+    <%= render partial: "comment", locals: { comment: comment } %>
+  <% end %>
+  <%= paginate(@tweets) %>
+</div>

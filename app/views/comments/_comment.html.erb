@@ -1,0 +1,24 @@
+<div class="content_post" style="background-image: url(<%= comment.image %>);">
+      <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+            <li>
+              <%= link_to '詳細', "/comments/#{comment.id}", method: :get %>
+            </li>
+            <% if user_signed_in? && current_user.id == comment.user_id %>
+              <li>
+                <%= link_to '編集', "/comments/#{comment.id}/edit", method: :get %>
+              </li>
+              <li>
+                <%= link_to '削除', "/comments/#{comment.id}", method: :delete %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <%= simple_format(comment.text) %>
+      <span class="name">
+        <a href="/users/<%= comment.user.id %>">
+          <span>投稿者</span><%= comment.user.nickname %>
+        </a>
+      </span>
+    </div>
