@@ -14,5 +14,6 @@ class Post < ApplicationRecord
   def iine?(user)
     iine_users.include?(user)
   end
-
+  
+  mount_uploader :image, ImageUploader
 end
