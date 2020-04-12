@@ -1,24 +1,57 @@
-# README
+## アプリケーション概要
+- 不特定多数の人たちが匿名で気軽に質問できるアプリケーション。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーションの機能一覧
+- ユーザー新規登録機能
+- ユーザーログイン／ログアウト機能
+- マイページ表示機能
+- 投稿機能
+- コメント機能、いいね機能
+- 投稿（編集／削除機能）
 
-Things you may want to cover:
+## アプリケーションで使用している技術一覧
+|種別|名称|
+|---|---|
+|開発言語|Ruby(ver 2.5.1)|
+|フレームワーク|Ruby on Rails(ver 5.2.4.1)|
+|マークアップ|HTML/CSS|
+|フロントエンド|JavaScript(jQuery)|
+|本番環境|AWS,EC2|
+|自動デプロイ|capistrano|
+|画像アップロード|carrierwave,S3|
+|DB|MySQL|
+|ユーザー管理|devise|
 
-* Ruby version
+## users テーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string||
+|email|string|null: false|
+|password|string|null: false|
 
-* System dependencies
+### Association
+- has_many : comments
+- has_many : likes, dependent: :destroy
 
-* Configuration
+## likes テーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer||
+|post_id|integer||
 
-* Database initialization
+### Association
+- belongs_to :user
+- belongs_to :post
 
-* How to run the test suite
+## posts テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|comment_id|integer||
+|text|integer||
 
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :comment
+- has_many :likes, dependent: :destroy
+- has_many :iine_users, through: :likes, source: :user
