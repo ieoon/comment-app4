@@ -359,10 +359,10 @@ form {
   box-shadow: 0 0 10px rgba($black,0.2);
   background-color: $white;
   box-sizing: border-box;
-  .fas fa-qrcode {
-    height: 100%;
-    width: 100%;
-  }
+  // .qrcode {
+  //   height: 100px;
+  //   width: 100px;
+  // }
 }
 .comments {
   padding: 5px;
