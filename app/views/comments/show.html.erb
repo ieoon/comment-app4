@@ -45,7 +45,7 @@
         <h4>＜コメント一覧＞</h4>
         <% if @posts %>
           <% @posts.each do |post| %>
-          <p>
+          <p style="font-family: 'ほのか明朝';">
             <%= post.text %>
           </p>
           <%= render "likes/like", post: post %>

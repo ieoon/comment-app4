@@ -51,7 +51,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'fog-aws'
+# gem 'fog-aws'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -82,5 +82,5 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-gem 'carrierwave'
-gem 'mini_magick'
+# gem 'carrierwave'
+# gem 'mini_magick'
