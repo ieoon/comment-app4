@@ -2,7 +2,13 @@
   <p><%= @nickname %>さんの投稿一覧</p>
 
   <% @comments.each do |comment| %>
-    <%= render partial: "comment", locals: { comment: comment } %>
+    <div class="content_post" style="background-image: url(<%= comment.image %>);">
+      <%= simple_format(comment.text) %>
+      <%# <span class="name"><%= comment.name %></span> %>
+    </div>
   <% end %>
-  <%= paginate(@tweets) %>
 </div>
+    <%# <%= render partial: "comment", locals: { comment: comment } %> %>
+  <%# <% end %> %>
+  <%# <%= paginate(@comments) %> %>
+<%# </div> %>
