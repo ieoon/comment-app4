@@ -8,7 +8,7 @@ class LikesController < ApplicationController
       @post.iine(current_user)
       @post.reload
       respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
+        format.html { redirect_back(fallback_location: root_url) }
         format.js
       end
     end
@@ -19,7 +19,7 @@ class LikesController < ApplicationController
     if @post.iine?(current_user)
       @post.uniine(current_user)
       respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
+        format.html { redirect_back(fallback_location: root_url) }
         format.js
       end
     end

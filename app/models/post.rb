@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :comment
-  has_many :likes, dependent: :destroy
+  has_many :likes
   has_many :iine_users, through: :likes, source: :user
 
   def iine(user)
@@ -15,5 +15,4 @@ class Post < ApplicationRecord
     iine_users.include?(user)
   end
 
-  # mount_uploader :image, ImageUploader
 end

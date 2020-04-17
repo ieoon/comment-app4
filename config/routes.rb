@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'comments#index'
   resources :comments do
+    # resources :likes, only: [:create, :destroy]
     resources :posts, only: :create
     collection do
       get 'search'

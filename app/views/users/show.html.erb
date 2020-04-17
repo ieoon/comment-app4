@@ -4,11 +4,6 @@
   <% @comments.each do |comment| %>
     <div class="content_post" style="background-image: url(<%= comment.image %>);">
       <%= simple_format(comment.text) %>
-      <%# <span class="name"><%= comment.name %></span> %>
     </div>
   <% end %>
 </div>
-    <%# <%= render partial: "comment", locals: { comment: comment } %> %>
-  <%# <% end %> %>
-  <%# <%= paginate(@comments) %> %>
-<%# </div> %>

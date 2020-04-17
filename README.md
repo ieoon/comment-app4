@@ -21,7 +21,6 @@
 |フロントエンド|JavaScript(jQuery)|
 |本番環境|AWS,EC2|
 |自動デプロイ|capistrano|
-|画像アップロード|carrierwave,S3|
 |DB|MySQL|
 |ユーザー管理|devise|
 
