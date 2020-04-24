@@ -1,5 +1,4 @@
 <div class ="contents row">
-<%# <script src="jquery.qrcode.min.js"></script> %>
     <div class="content_post" style="background-image: url(<%= @comment.image %>);">
       <% if user_signed_in? && current_user.id == @comment.user_id %>
         <div class="more">
@@ -36,9 +35,9 @@
         document.write('<img src=\"' + url + '\" />');
       </script>
     <div class="container">
-      <%= form_with(model: [@comment, @post], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
+      <%= form_with(model: [@comment, @post], local: true, id: "new_post") do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "textbox" %>
+        <%= form.submit "SEND", class: "form__submit" %>
         <% end %>
 
         <div class="posts">
@@ -47,8 +46,8 @@
           <% @posts.each do |post| %>
           <p style="font-family: 'ほのか明朝';">
             <%= post.text %>
+            <%= render "likes/like", post: post %>
           </p>
-          <%= render "likes/like", post: post %>
           <% end %>
         <% end %>
       </div>
