@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 
   def show
     @post = Post.new
-    @posts = @comment.posts
+    @posts = @comment.posts.all.order("created_at DESC")
   end
 
   def search

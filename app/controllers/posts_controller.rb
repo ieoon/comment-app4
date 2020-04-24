@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     respond_to do |format|
-      format.html { redirect_to comment_path(params[:comment_id])  }
+      format.html { redirect_to comment_path(params[:comment_id])}
       format.json
     end
   end
